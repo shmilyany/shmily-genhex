@@ -1,0 +1,73 @@
+{
+  "publisher": "shmily",
+  "name": "shmily-genhex",
+  "displayName": "shmily-genhex",
+  "version": "1.0.0",
+  "description": "使用随机数据替换选中的 Hex 字符",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shmilyany/shmily-genhex",
+    "directory": "."
+  },
+  "bugs": {
+  },
+  "keywords": [
+    "gen",
+    "hex"
+  ],
+  "prettier": "@hairy/eslint/prettier.js",
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "icon": "public/logo.png",
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "activationEvents": [
+    "onCommand:extension.genhex"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.genhex",
+        "title": "生成随机HEX"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "group": "navigation",
+          "command": "extension.genhex",
+          "title": "生成随机HEX"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "comment-json": "4.1.0",
+    "ejs": "^3.1.9",
+    "fs-extra": "^11.0.0",
+    "glob": "^8.1.0",
+    "slash": "3.0.0"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "^11.0.1",
+    "@types/glob": "^8.1.0",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.47.0",
+    "@vscode/vsce": "^2.18.0",
+    "eslint": "^8.36.0",
+    "typescript": "^5.0.0"
+  }
+}
